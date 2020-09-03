@@ -4,11 +4,23 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Animal dog = new Animal("dog");
-        dog.name = "Rex";
+        Human me = new Human();
+        Animal pet = new Animal("dog");
+        pet.name = "Rex";
 
-        dog.feed();
-        dog.walk();
-        dog.walk();
+        pet.feed();
+        pet.walk();
+
+        Car bmw = new Car();
+
+        bmw.producer = "BMW";
+        bmw.model = "M3";
+        bmw.price = 4000.0;
+
+        me.setCar(bmw);
+
     }
 }
+
+
+
