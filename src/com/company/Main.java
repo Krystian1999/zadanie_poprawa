@@ -19,6 +19,7 @@ public class Main {
 
         me.setCar(bmw);
 
+        me.getSalary();
     }
 }
 
