@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Human {
     public Animal pet;
-    public Car car;
+    private Car car;
     private Double salary = 1000.0;
 
     Date date = new Date();
@@ -13,6 +13,10 @@ public class Human {
 
     public void setCar(Car car){
         this.car = car;
+    }
+
+    public Car getCar() {
+        return car;
     }
 
     public Double getSalary() {
@@ -33,5 +37,16 @@ public class Human {
 
         }
         return this.salary = salary;
+    }
+    public void setNewCar(Car car) {
+        if (salary >= car.price) {
+            System.out.println("Mozesz kupic nowe autko");
+            getCar();
+        } else if (salary > (car.price / 12)) {
+            System.out.println("Mozesz kupic auto na kredyt");
+            getCar();
+        } else {
+            System.out.println("Nie masz hajsu");
+        }
     }
 }

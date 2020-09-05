@@ -17,7 +17,7 @@ public class Main {
         bmw.model = "M3";
         bmw.price = 4000.0;
 
-        me.setCar(bmw);
+        me.setNewCar(bmw);
 
         me.getSalary();
     }
