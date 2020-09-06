@@ -1,14 +1,22 @@
 package com.company;
 
 
+import com.company.devices.Car;
+
 import java.util.Date;
 
 public class Human {
+    public String name;
+    public String lastname;
     public Animal pet;
     private Car car;
     private Double salary = 1000.0;
 
     Date date = new Date();
+
+    public String toString() {
+        return name + " " + lastname + " " + salary;
+    }
 
 
     public void setCar(Car car){
