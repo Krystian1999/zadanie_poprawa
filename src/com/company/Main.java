@@ -36,6 +36,7 @@ public class Main {
         System.out.println(me.toString());
         System.out.println(bmw.toString());
         System.out.println(pet.toString());
+        bmw.turnOn();
     }
 }
 
