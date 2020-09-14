@@ -2,6 +2,10 @@ package com.company;
 
 import com.company.devices.Car;
 import com.company.devices.Phone;
+import creatures.Animal;
+import creatures.FarmAnimal;
+import creatures.Pet;
+
 
 public class Main {
 
@@ -12,11 +16,19 @@ public class Main {
         me.name = "Krystian";
         me.lastname = "Gawin";
 
-        Animal pet = new Animal("dog");
+        Animal animal = new Pet();
+
+        Animal pet = new Animal("dog", 20.0) {
+            @Override
+            public void feed(Double foodWeight) {
+
+            }
+        };
         pet.name = "Rex";
 
-        pet.feed();
-        pet.walk();
+        animal.feed();
+
+        Animal animal_1 = new FarmAnimal("cow",200.0);
 
         Car bmw = new Car();
 
@@ -41,27 +53,6 @@ public class Main {
         Phone phone = new Phone();
         phone.setModel("Samsung");
 
-        Animal animal = new Animal("dog");
-
-        Human seller = new Human();
-        seller.setPhone(phone);
-        seller.setPet(animal);
-        seller.setCar(bmw);
-        seller.setSalary(0.0);
-
-        Human buyer = new Human();
-        buyer.setSalary(0.0);
-        buyer.setCash(8000);
-
-        System.out.println("pieniądze sprzedającego przed transakcją: " + seller.getCash());
-        System.out.println("pieniądze kupujacego przed transakcją: " + buyer.getCash());
-
-        animal.salleable.sell(seller, buyer, 4000.0);
-        bmw.salleable.sell(seller, buyer, 1000.0);
-        phone.salleable.sell(seller, buyer, 6000.0);
-
-        System.out.println("pieniądze sprzedającego po transakcji: " + seller.getCash());
-        System.out.println("pieniądze kupującego po  transakcją: " + buyer.getCash());
 
     }
 }

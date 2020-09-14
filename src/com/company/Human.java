@@ -3,6 +3,7 @@ package com.company;
 
 import com.company.devices.Car;
 import com.company.devices.Phone;
+import creatures.Animal;
 
 import java.util.Date;
 

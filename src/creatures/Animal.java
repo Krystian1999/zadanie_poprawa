@@ -1,29 +1,27 @@
-package com.company;
+package creatures;
 
-public class Animal {
-    final static Double DEFAULT_WEIGHT_DOG = 16.0;
-    final static Double DEFAULT_WEIGHT_CAT = 8.0;
-    final String species;
-    String name;
+import com.company.Human;
+import com.company.Salleable;
+
+public abstract class Animal implements Feedable {
+    String species = "dog";
+    public String name;
     private double weight;
 
 
-    public Animal(String species) {
+    public Animal(String species, Double weight) {
         this.species = species;
-
-        if(this.species == "dog"){
-            weight = DEFAULT_WEIGHT_DOG;
-        }
-        else if (this.species == "cat"){
-            weight = DEFAULT_WEIGHT_CAT;
-        }
-
+        this.weight = weight;
     }
+    public Animal() {
+        this.weight = 20.0;
+    }
+
     public String toString() {
         return species + " " + name + " " + weight;
     }
 
-    void feed(){
+   public void feed(){
         weight+= 4;
         if(weight>=100) {
             System.out.println("Zmarłem z przejedzenia");
@@ -32,7 +30,7 @@ public class Animal {
         }else
             System.out.println("Eleganckie jedzenie, waga wynosi " + weight);
     }
-    void walk(){
+   public void walk(){
         weight-=4;
         if(weight>=100) {
             System.out.println("Nie żyje,nie wyprowadzisz mnie");
