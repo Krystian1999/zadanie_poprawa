@@ -42,4 +42,37 @@ public class Animal {
             System.out.println("Elegnacki spacer, waga wynosi " + weight);
     }
 
+    public Salleable salleable = new Salleable() {
+        @Override
+        public void sell(Human seller, Human buyer, Double price) {
+            if(buyer.getCash()>=price) {
+                if (seller.getPet() == null) {
+                    System.out.println("Nie mam zwierzęcia na sprzedaż");
+                } else {
+                    System.out.println("mam zwierzę na sprzedaż");
+                    buyer.setCash(-price);
+                    buyer.setPet(seller.getPet());
+                    seller.setCash(+price);
+                }
+
+                if (seller.getCar() == null) {
+                    System.out.println("Nie mam samochodu na sprzedaż");
+                } else {
+                    System.out.println("Mam samochód na sprzedaż");
+                }
+
+                if (seller.getPhone() == null) {
+                    System.out.println("Nie mam telefonu na sprzedaż");
+                } else {
+                    System.out.println("Mam telefon na sprzedaż");
+                }
+            }else {
+                System.out.println("nie masz hajsu");
+            }
+
+
+        }
+
+    };
+
 }

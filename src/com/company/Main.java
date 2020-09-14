@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.devices.Car;
+import com.company.devices.Phone;
 
 public class Main {
 
@@ -31,12 +32,37 @@ public class Main {
 
         me.setNewCar(bmw);
 
-        me.getSalary();
-
         System.out.println(me.toString());
         System.out.println(bmw.toString());
         System.out.println(pet.toString());
         bmw.turnOn();
+
+
+        Phone phone = new Phone();
+        phone.setModel("Samsung");
+
+        Animal animal = new Animal("dog");
+
+        Human seller = new Human();
+        seller.setPhone(phone);
+        seller.setPet(animal);
+        seller.setCar(bmw);
+        seller.setSalary(0.0);
+
+        Human buyer = new Human();
+        buyer.setSalary(0.0);
+        buyer.setCash(8000);
+
+        System.out.println("pieniądze sprzedającego przed transakcją: " + seller.getCash());
+        System.out.println("pieniądze kupujacego przed transakcją: " + buyer.getCash());
+
+        animal.salleable.sell(seller, buyer, 4000.0);
+        bmw.salleable.sell(seller, buyer, 1000.0);
+        phone.salleable.sell(seller, buyer, 6000.0);
+
+        System.out.println("pieniądze sprzedającego po transakcji: " + seller.getCash());
+        System.out.println("pieniądze kupującego po  transakcją: " + buyer.getCash());
+
     }
 }
 

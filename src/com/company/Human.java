@@ -2,17 +2,22 @@ package com.company;
 
 
 import com.company.devices.Car;
+import com.company.devices.Phone;
 
 import java.util.Date;
 
 public class Human {
+    public Phone phone;
     public String name;
     public String lastname;
     public Animal pet;
+    Double cash = 0.0;
     private Car car;
     private Double salary = 1000.0;
 
     Date date = new Date();
+
+
 
     public String toString() {
         return name + " " + lastname + " " + salary;
@@ -56,5 +61,25 @@ public class Human {
         } else {
             System.out.println("Nie masz hajsu");
         }
+    }
+    public void setCash(double cash) {
+        this.cash = this.cash + cash;
+    }
+
+    public double getCash() {
+        return cash + salary;
+    }
+    public Animal getPet() {
+        return pet;
+    }
+    public void setPet(Animal pet) {
+        this.pet = pet;
+    }
+    public Phone getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
     }
 }
