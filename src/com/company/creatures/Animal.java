@@ -1,4 +1,4 @@
-package creatures;
+package com.company.creatures;
 
 import com.company.Human;
 import com.company.Salleable;

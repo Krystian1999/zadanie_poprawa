@@ -1,4 +1,4 @@
-package creatures;
+package com.company.creatures;
 
 public class Pet extends Animal {
 

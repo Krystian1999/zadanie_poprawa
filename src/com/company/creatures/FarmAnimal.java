@@ -1,4 +1,4 @@
-package creatures;
+package com.company.creatures;
 
 public class FarmAnimal extends Animal implements Edbile {
 

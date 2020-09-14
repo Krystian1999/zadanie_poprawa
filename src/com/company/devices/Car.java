@@ -3,9 +3,11 @@ package com.company.devices;
 import com.company.Human;
 import com.company.Salleable;
 
-public class Car extends Device {
+public abstract class Car extends Device {
 
     public Double price ;
+
+    public abstract String refuel();
 
      public String toString() {
           return producer + " " + model + " " + price;

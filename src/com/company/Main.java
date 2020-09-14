@@ -1,10 +1,12 @@
 package com.company;
 
 import com.company.devices.Car;
+import com.company.devices.Disel;
+import com.company.devices.LPG;
 import com.company.devices.Phone;
-import creatures.Animal;
-import creatures.FarmAnimal;
-import creatures.Pet;
+import com.company.creatures.Animal;
+import com.company.creatures.FarmAnimal;
+import com.company.creatures.Pet;
 
 
 public class Main {
@@ -30,9 +32,9 @@ public class Main {
 
         Animal animal_1 = new FarmAnimal("cow",200.0);
 
-        Car bmw = new Car();
+        Car bmw = new Disel();
 
-        Car audi = new Car();
+        Car audi = new LPG();
 
         audi.producer = "Audi";
         audi.model = "RS7";
@@ -46,12 +48,15 @@ public class Main {
 
         System.out.println(me.toString());
         System.out.println(bmw.toString());
+        System.out.println(bmw.refuel());
         System.out.println(pet.toString());
         bmw.turnOn();
 
 
         Phone phone = new Phone();
         phone.setModel("Samsung");
+
+        System.out.println(Phone.serverAddress);
 
 
     }
