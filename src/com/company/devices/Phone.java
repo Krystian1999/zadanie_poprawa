@@ -2,9 +2,13 @@ package com.company.devices;
 
 import com.company.Human;
 import com.company.Salleable;
+import com.company.devices.Application;
 
 import java.net.URL;
 import java.util.List;
+import java.text.Collator;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Phone extends Device {
 
@@ -12,7 +16,9 @@ public class Phone extends Device {
     public static final String appName = "aplipkacja";
     public static final String version = "1.0";
     public static final String serverAddress = "3000";
-    public List<String> appList;
+    public List<Application> appList;
+    public Application application;
+    public  Human human;
     public URL url;
 
 
@@ -55,6 +61,72 @@ public class Phone extends Device {
             }
         }
     };
+
+    public void installNewApp(){
+        if(human.getCash()>application.price){
+            appList.add(application);
+            human.setCash(-application.price);
+            System.out.println("zainstalowano apke");
+        }
+    }
+
+    public  void isInstalled(Application app){
+        if(app.equals(application)){
+            System.out.println("Aplikacja jest zainstalowana");
+        }else
+            System.out.println("Aplikacja nie jest zainstalowana");
+    }
+
+    public  void isInstalled(String name){
+        if(name.equals(application.getName())){
+            System.out.println("Aplikacja jest zainstalowana");
+        }else
+            System.out.println("Aplikacja nie jest zainstalowana");
+    }
+
+    public List<Application> freeApplication(Application list){
+
+        for (Application app:appList){
+            if (app.price == 0) {
+                List<Application> freeApp = new ArrayList<>();
+                freeApp.add(list);
+                return freeApp;
+            }
+        }
+
+        return appList;
+    }
+
+    public void valueAllApp(){
+        double value;
+        for(int i = 0 ; i<appList.size();i++){
+            value =+ appList.get(i).getPrice();
+            System.out.print(value);
+        }
+
+    }
+
+    public void sortByAlphabet(){
+        java.util.Collections.sort(appList, Collator.getInstance());
+    }
+
+
+    public int compare(Application application, Application application_1)
+    {
+        return application.getPrice() - application_1.getPrice();
+    }
+
+
+    public List<Application> sortByPrice(){
+
+        Collections.sort(appList, this::compare);
+        Collections.reverse(appList);
+        System.out.println("Posortowano po cenie");
+        for (int i=0; i<appList.size(); i++)
+            System.out.println(appList.get(i));
+
+        return appList;
+    }
     public String toString() {
         return "";
     }

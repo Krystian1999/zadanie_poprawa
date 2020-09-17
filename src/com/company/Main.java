@@ -1,9 +1,6 @@
 package com.company;
 
-import com.company.devices.Car;
-import com.company.devices.Disel;
-import com.company.devices.LPG;
-import com.company.devices.Phone;
+import com.company.devices.*;
 import com.company.creatures.Animal;
 import com.company.creatures.FarmAnimal;
 import com.company.creatures.Pet;
@@ -17,6 +14,7 @@ public class Main {
 
         me.name = "Krystian";
         me.lastname = "Gawin";
+        me.setCash(100000.0);
 
         Animal animal = new Pet();
 
@@ -74,7 +72,9 @@ public class Main {
         buyer.setCar(audi,0);
         System.out.println(buyer.getAutoFromGarage(0));
 
-
+        Application tinder = new Application();
+        tinder.setVersion(1.0);
+        tinder.setPrice(600);
 
 
     }
