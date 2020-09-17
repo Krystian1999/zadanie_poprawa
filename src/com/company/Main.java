@@ -66,13 +66,16 @@ public class Main {
         seller.setCar(audi,0);
         seller.setCash(100);
 
-        Human buyer = new Human();
+        Human buyer = new Human(3);
         buyer.setCash(10000.0);
         buyer.setCar(null,0);
 
         audi.salleable.sell(seller, buyer, 4000.0);
         buyer.setCar(audi,0);
         System.out.println(buyer.getAutoFromGarage(0));
+
+
+
 
     }
 }

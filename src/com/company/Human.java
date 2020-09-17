@@ -19,6 +19,8 @@ public class Human {
     private ArrayList<Car> garage;
     private Double salary = 1000.0;
 
+
+
     Date date = new Date();
 
     public String toString() {
@@ -117,4 +119,5 @@ public class Human {
     public void setPhone(Phone phone) {
         this.phone = phone;
     }
+
 }
