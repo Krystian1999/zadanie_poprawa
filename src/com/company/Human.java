@@ -6,6 +6,9 @@ import com.company.devices.Phone;
 import com.company.creatures.Animal;
 
 import java.util.Date;
+import java.util.*;
+
+
 
 public class Human {
     public Phone phone;
@@ -13,24 +16,65 @@ public class Human {
     public String lastname;
     public Animal pet;
     Double cash = 0.0;
-    private Car car;
+    private ArrayList<Car> garage;
     private Double salary = 1000.0;
 
     Date date = new Date();
-
-
 
     public String toString() {
         return name + " " + lastname + " " + salary;
     }
 
-
-    public void setCar(Car car){
-        this.car = car;
+    public Human() {
+        this.garage = new ArrayList(4);
+    }
+    public Human(int initialCapacity) {
+        this.garage = new ArrayList(initialCapacity);
     }
 
-    public Car getCar() {
-        return car;
+    public ArrayList<Car> getGarage() {
+        return garage;
+    }
+    public void setGarage(ArrayList<Car> garage) {
+        this.garage = garage;
+    }
+
+    public void garageValue() {
+
+        double value;
+        for (int i = 0; i < garage.size(); i++) {
+
+            value =+ garage.get(i).getPrice();
+
+            System.out.print(value);
+        }
+    }
+
+    public int compare(Car car_a, Car car_b)
+    {
+        return car_a.getYear() - car_b.getYear();
+    }
+
+    public List<Car> sortCarByYear(){
+
+        Collections.sort(garage, this::compare);
+        Collections.reverse(garage);
+        System.out.println("Posortowane");
+        for (int i=0; i<garage.size(); i++)
+            System.out.println(garage.get(i));
+
+        return garage;
+    }
+
+    public List<Car> setCar(Car car, int index) {
+
+        garage.add(index, car);
+
+        return garage;
+    }
+
+    public Car getAutoFromGarage(int index) {
+        return garage.get(index);
     }
 
     public Double getSalary() {
@@ -52,17 +96,7 @@ public class Human {
         }
         return this.salary = salary;
     }
-    public void setNewCar(Car car) {
-        if (salary >= car.price) {
-            System.out.println("Mozesz kupic nowe autko");
-            getCar();
-        } else if (salary > (car.price / 12)) {
-            System.out.println("Mozesz kupic auto na kredyt");
-            getCar();
-        } else {
-            System.out.println("Nie masz hajsu");
-        }
-    }
+
     public void setCash(double cash) {
         this.cash = this.cash + cash;
     }

@@ -39,16 +39,20 @@ public class Main {
         audi.producer = "Audi";
         audi.model = "RS7";
         audi.price = 9000.0;
+        audi.yearOfProduction= 2018;
 
         bmw.producer = "BMW";
         bmw.model = "M3";
         bmw.price = 4000.0;
+        bmw.yearOfProduction = 2017;
 
-        me.setNewCar(bmw);
+        me.setCar(bmw,0);
+        me.setCar(audi,1);
+
+        me.garageValue();
+        me.sortCarByYear();
 
         System.out.println(me.toString());
-        System.out.println(bmw.toString());
-        System.out.println(bmw.refuel());
         System.out.println(pet.toString());
         bmw.turnOn();
 
@@ -58,6 +62,17 @@ public class Main {
 
         System.out.println(Phone.serverAddress);
 
+        Human seller = new Human(3);
+        seller.setCar(audi,0);
+        seller.setCash(100);
+
+        Human buyer = new Human();
+        buyer.setCash(10000.0);
+        buyer.setCar(null,0);
+
+        audi.salleable.sell(seller, buyer, 4000.0);
+        buyer.setCar(audi,0);
+        System.out.println(buyer.getAutoFromGarage(0));
 
     }
 }

@@ -5,7 +5,7 @@ import com.company.Salleable;
 
 public abstract class Car extends Device {
 
-    public Double price ;
+
 
     public abstract String refuel();
 
@@ -21,36 +21,41 @@ public abstract class Car extends Device {
     public Salleable salleable = new Salleable() {
         @Override
         public void sell(Human seller, Human buyer, Double price) {
-            if (buyer.getCash() >= price) {
-                if (seller.getPet() == null) {
-                    System.out.println("Nie mam zwierzęcia na sprzedaż");
-                } else {
-                    System.out.println("Mam zwierzę na sprzedaż");
 
+
+            if (seller.getAutoFromGarage(0) != null) {
+                System.out.println("Mam samochód na sprzedaż");
+
+
+                if (buyer.getAutoFromGarage(0) == null) {
+
+                    if (buyer.getCash() > price) {
+                        seller.setCash(+price);
+                        buyer.setCash(-price);
+                        System.out.println("Kupiłes samochód");
+
+                    } else {
+                        System.out.println("Nie masz pieniedzy");
+                    }
+                } else {
+                    System.out.println("Nie masz miejsca");
                 }
 
-                if (seller.getCar() == null) {
-                    System.out.println("Nie mam samochodu na sprzedaż");
-                } else {
-                    System.out.println("Mam samochód na sprzedaż");
-                    buyer.setCash(-price);
-                    buyer.setCar(seller.getCar());
-                    seller.setCash(+price);
-                }
 
-                if (seller.getPhone() == null) {
-                    System.out.println("Nie mam telefonu na sprzedaż");
-                } else {
-                    System.out.println("Mam telefon na sprzedaż");
-                }
             } else {
-                System.out.println("Nie masz hajsu");
+                System.out.println("Nie mam samochodu na sprzedaż");
             }
-
-
         }
 
+
     };
+    public int getYear() {
+        return yearOfProduction;
+    }
+
+    public void setYear(int year) {
+        this.yearOfProduction = yearOfProduction;
+    }
     public void setModel(String model) {
         this.model = model;
     }

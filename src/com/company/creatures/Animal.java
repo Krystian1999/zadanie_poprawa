@@ -53,7 +53,7 @@ public abstract class Animal implements Feedable {
                     seller.setCash(+price);
                 }
 
-                if (seller.getCar() == null) {
+                if (seller.getGarage() == null) {
                     System.out.println("Nie mam samochodu na sprzedaż");
                 } else {
                     System.out.println("Mam samochód na sprzedaż");

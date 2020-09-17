@@ -37,7 +37,7 @@ public class Phone extends Device {
 
                 }
 
-                if (seller.getCar() == null) {
+                if (seller.getGarage() == null) {
                     System.out.println("Nie mam samochodu na sprzedaż");
                 } else {
                     System.out.println("Mam samochód na sprzedaż");
